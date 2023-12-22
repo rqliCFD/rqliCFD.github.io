@@ -9,6 +9,9 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
+            background: linear-gradient(to right, #7F7FD5, #86A8E7, #91EAE4);
+            /* 修改渐变的颜色值 */
+            color: #fff; /* 文字颜色为白色，以适应渐变背景 */
         }
         img {
             max-width: 100%;
@@ -19,6 +22,10 @@
             padding: 10px;
             font-size: 16px;
             cursor: pointer;
+            background-color: #4CAF50; /* 设置按钮背景颜色 */
+            color: white; /* 设置按钮文字颜色 */
+            border: none; /* 移除按钮边框 */
+            border-radius: 4px; /* 圆角边框 */
         }
     </style>
 </head>
@@ -29,7 +36,7 @@
 
     <script>
         var imageIndex = 1; // Starting index
-        var totalImages = 2; // Total number of images
+        var totalImages = 3; // Total number of images
 
         // JavaScript function to change the image source
         function changeImage() {
