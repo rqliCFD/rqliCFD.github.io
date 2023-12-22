@@ -44,30 +44,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-function loadImage() {
-    // 使用相对路径加载图片
-    var img = document.createElement("img");
-    img.src = "./your-image-url-2.jpg"; // 相对路径
-    img.alt = "Description of your image";
-    document.getElementById("blogContent").innerHTML = "";
-    document.getElementById("blogContent").appendChild(img);
-}
-
-function loadMarkdown() {
-    // 使用相对路径加载 Markdown 文件
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var markdownText = xhr.responseText;
-            var htmlText = marked(markdownText);
-            document.getElementById("blogContent").innerHTML = htmlText;
+        function loadImage() {
+            // 使用相对路径加载图片
+            var img = document.createElement("img");
+            img.src = "./your-image-url-2.jpg"; // 相对路径
+            img.alt = "Description of your image";
+            document.getElementById("blogContent").innerHTML = "";
+            document.getElementById("blogContent").appendChild(img);
         }
-    };
 
-    // 使用相对路径加载 Markdown 文件
-    xhr.open("GET", "./your-markdown-file.md", true); // 相对路径
-    xhr.send();
-}
+        function loadMarkdown() {
+            // 使用相对路径加载 Markdown 文件
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var markdownText = xhr.responseText;
+                    var htmlText = marked(markdownText);
+                    document.getElementById("blogContent").innerHTML = htmlText;
+                }
+            };
+
+            // 使用相对路径加载 Markdown 文件
+            xhr.open("GET", "./your-markdown-file.md", true); // 相对路径
+            xhr.send();
+        }
     </script>
 </body>
 </html>
