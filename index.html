@@ -35,7 +35,7 @@
     <h1>Welcome to My Personal Blog</h1>
 
     <div id="blogContent">
-        <p>Click the button to load a Markdown file.</p>
+        <p>Click the button to load the README.md file.</p>
     </div>
 
     <button onclick="loadMarkdown()">Load Markdown</button>
@@ -53,8 +53,8 @@
             };
 
             // Replace "your-github-username" and "your-repo-name" accordingly
-            var githubPagesUrl = "https://rqliCFD.github.io/rqliCFD.github.io";
-            xhr.open("GET", githubPagesUrl, true);
+            var githubPagesUrl = "https://rqlicfd.github.io/";
+            xhr.open("GET", githubPagesUrl + "/README.md", true);
             xhr.send();
         }
     </script>
