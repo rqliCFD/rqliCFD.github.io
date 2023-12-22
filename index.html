@@ -25,6 +25,7 @@
             color: white;
             border: none;
             border-radius: 4px;
+            margin-right: 10px;
         }
         #blogContent {
             text-align: left;
@@ -35,38 +36,38 @@
     <h1>Welcome to My Personal Blog</h1>
 
     <div id="blogContent">
-        <p>Click the button to load content.</p>
+        <p>Click the buttons to load content.</p>
     </div>
 
-    <button onclick="loadContent()">Load Content</button>
+    <button onclick="loadImage()">Load Image</button>
+    <button onclick="loadMarkdown()">Load Markdown</button>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-         function loadImage() {
-            // 使用相对路径加载图片
-            var img = document.createElement("img");
-            img.src = "./your-image-url-2.jpg"; // 相对路径
-            img.alt = "Description of your image";
-            document.getElementById("blogContent").innerHTML = "";
-            document.getElementById("blogContent").appendChild(img);
-        }
-        
-        function loadMarkdown() {
-            // 使用相对路径加载 Markdown 文件
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var markdownText = xhr.responseText;
-                    var htmlText = marked(markdownText);
-                    document.getElementById("blogContent").innerHTML = htmlText;
-                }
-            };
-        
-            // 使用相对路径加载 Markdown 文件
-            xhr.open("GET", "./your-markdown-file.md", true); // 相对路径
-            xhr.send();
-        }
+function loadImage() {
+    // 使用相对路径加载图片
+    var img = document.createElement("img");
+    img.src = "./your-image-url-2.jpg"; // 相对路径
+    img.alt = "Description of your image";
+    document.getElementById("blogContent").innerHTML = "";
+    document.getElementById("blogContent").appendChild(img);
+}
 
+function loadMarkdown() {
+    // 使用相对路径加载 Markdown 文件
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var markdownText = xhr.responseText;
+            var htmlText = marked(markdownText);
+            document.getElementById("blogContent").innerHTML = htmlText;
+        }
+    };
+
+    // 使用相对路径加载 Markdown 文件
+    xhr.open("GET", "./your-markdown-file.md", true); // 相对路径
+    xhr.send();
+}
     </script>
 </body>
 </html>
