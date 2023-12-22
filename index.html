@@ -42,19 +42,31 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        function loadContent() {
-            // Replace "your-github-username" and "your-repo-name" accordingly
-            var githubPagesUrl = "https://rqliCFD.github.io/rqliCFD.github.io";
-            
-            // Load image
+         function loadImage() {
+            // 使用相对路径加载图片
             var img = document.createElement("img");
-            img.src = "./your-image-url-2.jpg";
+            img.src = "./path-to-your-image.jpg"; // 相对路径
             img.alt = "Description of your image";
             document.getElementById("blogContent").innerHTML = "";
             document.getElementById("blogContent").appendChild(img);
-
-            // You can add more content loading logic here, such as loading markdown or other content types
         }
+        
+        function loadMarkdown() {
+            // 使用相对路径加载 Markdown 文件
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var markdownText = xhr.responseText;
+                    var htmlText = marked(markdownText);
+                    document.getElementById("blogContent").innerHTML = htmlText;
+                }
+            };
+        
+            // 使用相对路径加载 Markdown 文件
+            xhr.open("GET", "./your-markdown-file.md", true); // 相对路径
+            xhr.send();
+        }
+
     </script>
 </body>
 </html>
