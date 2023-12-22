@@ -35,27 +35,25 @@
     <h1>Welcome to My Personal Blog</h1>
 
     <div id="blogContent">
-        <p>Click the button to load the README.md file.</p>
+        <p>Click the button to load content.</p>
     </div>
 
-    <button onclick="loadMarkdown()">Load Markdown</button>
+    <button onclick="loadContent()">Load Content</button>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        function loadMarkdown() {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var markdownText = xhr.responseText;
-                    var htmlText = marked(markdownText);
-                    document.getElementById("blogContent").innerHTML = htmlText;
-                }
-            };
-
+        function loadContent() {
             // Replace "your-github-username" and "your-repo-name" accordingly
-            var githubPagesUrl = "https://rqlicfd.github.io/";
-            xhr.open("GET", githubPagesUrl + "/README.md", true);
-            xhr.send();
+            var githubPagesUrl = "https://rqlicfd.github.io/rqliCFD.github.io";
+            
+            // Load image
+            var img = document.createElement("img");
+            img.src = githubPagesUrl + "/your-image-url-2.jpg"; // Replace with the actual path to your image
+            img.alt = "Description of your image";
+            document.getElementById("blogContent").innerHTML = "";
+            document.getElementById("blogContent").appendChild(img);
+
+            // You can add more content loading logic here, such as loading markdown or other content types
         }
     </script>
 </body>
